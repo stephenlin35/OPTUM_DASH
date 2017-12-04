@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Optum Dispensing Dashboard</title>
+        
+        <!-- Styles -->
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Chartist -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+        <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <!-- Sidebar Header -->
+                <div class="sidebar-header">
+                    <img src="optum_logo.png" height="50" width="150">
+                </div>    
+                
+                <!-- Sidebar Links -->
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                             <i class="glyphicon glyphicon-briefcase"></i>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Link with dropdown items -->
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-duplicate"></i>    
+                            Pages
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-link"></i>
+                            Portfolio
+                        </a>
+                    </li>
+                     <li>
+                         <a href="#">
+                             <i class="glyphicon glyphicon-send"></i>
+                             Contact
+                         </a>
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>
+        
+        <div class="search-container">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+                <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-4" viewBox="0 0 40 41">
+                    <path d="M25.54 28.188c-2.686 2.115-6.075 3.376-9.758 3.376C7.066 31.564 0 24.498 0 15.782 0 7.066 7.066 0 15.782 0c8.716 0 15.782 7.066 15.782 15.782 0 4.22-1.656 8.052-4.353 10.884l1.752 1.75 1.06-1.06L40 37.332l-3.72 3.72-9.977-9.976 1.062-1.062-1.826-1.826zm-9.758.746c7.264 0 13.152-5.888 13.152-13.152 0-7.263-5.888-13.152-13.152-13.152C8.52 2.63 2.63 8.52 2.63 15.782c0 7.264 5.89 13.152 13.152 13.152z" fill-rule="evenodd" />
+                </symbol>
+                <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20">
+                    <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z" fill-rule="evenodd" />
+                </symbol>
+            </svg>
+
+            <form novalidate="novalidate" onsubmit="return false;" class="searchbox sbx-custom">
+                <div role="search" class="sbx-custom__wrapper">
+                    <input type="search" name="search" placeholder="Search..." autocomplete="off" required="required" class="sbx-custom__input">
+                    <button type="submit" title="Submit your search query." class="sbx-custom__submit">
+                        <svg role="img" aria-label="Search">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sbx-icon-search-4"></use>
+                        </svg>
+                    </button>
+                    <button type="reset" title="Clear the search query." class="sbx-custom__reset">
+                        <svg role="img" aria-label="Reset">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sbx-icon-clear-5"></use>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="menu-container">
+                <div class="menu">
+                
+                    <div class="menu-items">
+                        <i class="glyphicon glyphicon-file com"></i>
+                        <i class="glyphicon glyphicon-envelope com"></i>
+                        <i class="glyphicon glyphicon-cloud-upload com"></i>
+                        <i class="glyphicon glyphicon-cog com"></i>
+                    </div>
+                    <div class="user-acc">
+                        <p class="com">Stephen Lin</p>
+                        <i class="glyphicon glyphicon-user com"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="container dash-title-con">
+                <i class="glyphicon glyphicon-dashboard"></i>
+                <h3 class="dash-title">Dashboard</h3>
+            </div>
+            <div class="page">
+                <div class="row">
+                    <div class="col">
+                        <h4>Orders By Hour</h4>
+                        <div class="ct-chart"></div>
+                    </div>
+                
+                    <div class="col">
+                        <h4>Current Hour</h4>
+                        <div class="ct-chart2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-full">
+                        <h4>Line Chart</h4>
+                        <div class="ct-chart3"></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-3">
+                        <h4>Line Chart</h4>
+                        <div class="ct-chart-4"></div>
+                    </div>
+                    <div class="col-3">
+                        <h4>Line Chart</h4>
+                        <div class="ct-chart-5"></div>
+                    </div>
+                    <div class="col-3">
+                        <h4>Line Chart</h4>
+                        <div class="ct-chart-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
